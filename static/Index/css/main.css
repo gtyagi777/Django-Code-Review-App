@@ -832,7 +832,7 @@ button {
 .s130 form {
   width: 100%;
   max-width: 900px;
-  padding-top: 10vh;
+
 }
 
 .s130 form .inner-form {
@@ -986,7 +986,6 @@ max-height:auto;
   margin-right: auto;
   display: flex;
   margin-bottom: 30px;
-  margin-top: 50px;
 
 }
 
@@ -996,7 +995,9 @@ max-height:auto;
   flex-wrap: wrap;
   padding: 33px 30px;
   border-radius: 25px;
-  width: 50%
+  width: 50%;
+  height : 50%;
+  margin-top : 10%
 }
 
 /*# sourceMappingURL=Searchs_130.css.map */

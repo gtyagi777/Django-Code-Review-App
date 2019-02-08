@@ -36,8 +36,7 @@ def fileList(request):
             a.append(initial_letter_filter(x.FileID))
             i.append(a)
             a = []
-        for x in i:
-            print(x)
+
             
         return render(request,'searchFiles/fileList.html', {'files': i})
     else:
@@ -49,11 +48,12 @@ def displayFile(request, file_id):
     vals = FileTable.objects.filter(FileID = file_id)
     path = str(vals[0].RootPath) + "//" + str(vals[0].FileName) +  str(vals[0].Extension)
     context_val = []
+    i = 1
     with open(path) as fp:  
         line = fp.readline()
-        context_val.append(line.replace('\n', ""))
+        context_val.append(str(i) +". " + line.replace('\n', ""))
         while line:
+            i+= 1
             line = fp.readline()
-            context_val.append(line.replace('\n', ""))
-    print(context_val)
+            context_val.append(str(i) +". " +  line.replace('\n', ""))
     return render(request, 'searchFiles/files.html', {'code' : context_val})
