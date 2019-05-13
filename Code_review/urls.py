@@ -19,4 +19,5 @@ from django.urls import include, path
 urlpatterns = [
     path('searchFiles/', include('searchFiles.urls')),
     path('admin/', admin.site.urls),
+    path('app_cmp/', include('app_cmp.urls')),
 ]

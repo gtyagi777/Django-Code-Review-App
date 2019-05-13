@@ -6,6 +6,10 @@ from searchFiles.models import FileTable, PathTable
 from searchFiles.tables import PTable
 from django_tables2 import RequestConfig
 
+from django import template
+from django.utils.html import conditional_escape
+from django.utils.safestring import mark_safe
+
 # Create your views here.
 def index(request):
     form = SearchForms()
@@ -18,10 +22,6 @@ def fileList(request):
         form = SearchForms(request.POST)
         data = request.POST.get('search')
         table = FileTable.objects.filter(FileName__contains = data)
-
-        from django import template
-        from django.utils.html import conditional_escape
-        from django.utils.safestring import mark_safe
 
         def initial_letter_filter(text, autoescape=True):
             result ="<a href=\"displayFile/" + str(text) + "\">Visit File</a>"

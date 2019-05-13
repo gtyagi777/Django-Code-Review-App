@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'searchFiles',
     'django_tables2',
+    'app_cmp',
 
 ]
 

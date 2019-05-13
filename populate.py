@@ -15,7 +15,7 @@ class File:
         self.fileName = fileName
         self.extention = extention
 
-pathOfDirectory = "C:\\Users\\tyagi\\Desktop\\Algorithm\\"
+pathOfDirectory = "C:\\Users\\tyagi\\Desktop\\Language\\Python\\Algorithm"
 
 fileObj = list()
 i = 0
@@ -27,7 +27,7 @@ for roots, directories, files in os.walk(pathOfDirectory):
         
         if fileComp[1] in x:
 
-            fileObj.append(File(roots, fileComp[0], fileComp[1]))       #creating new File object for every file
+            fileObj.append(File(roots, fileComp[0] + fileComp[1], fileComp[1]))       #creating new File object for every file
             i+=1
         
 print(str(i) + " file objects made.")
@@ -39,7 +39,13 @@ django.setup()
 
 from searchFiles.models import PathTable, FileTable
 
+def delete_everything():
+    FileTable.objects.all().delete()
+    PathTable.objects.all().delete()
+    
+
 def populate():
+    delete_everything()
     for index in range(len(fileObj)):
         c = add_path(fileObj[index].root)
         add_file(c,fileObj[index].fileName, fileObj[index].extention )
