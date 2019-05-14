@@ -1,9 +1,12 @@
 from django.db import models
 
 # Create your models here.
+
+
 class PathTable(models.Model):
     PathID = models.AutoField(primary_key=True)
     Path = models.TextField()
+
     def __str__(self):
         return self.Path
 

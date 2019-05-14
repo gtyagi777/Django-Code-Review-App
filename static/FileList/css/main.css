@@ -195,6 +195,27 @@ th, td {
   width: 13%;
 }
 
+.column12 {
+  width: 20%;
+  padding-left: 40px;
+}
+
+.column22 {
+  width: 40%;
+}
+
+.column32 {
+  width: 20%;
+}
+
+.column42 {
+  width: 10%;
+}
+
+.column52 {
+  width: 10%;
+}
+
 .table100-head th {
   padding-top: 18px;
   padding-bottom: 18px;
