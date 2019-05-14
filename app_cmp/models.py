@@ -2,6 +2,7 @@ from django.db import models
 
 class TempTable(models.Model):
     FileID = models.AutoField(primary_key=True)
+    SearchTerm = models.CharField(max_length=250)
     RootPath = models.CharField(max_length=1000)
     FileName = models.CharField(max_length=250)
     lineNumber = models.CharField(max_length=50)
