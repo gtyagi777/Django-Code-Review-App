@@ -6,6 +6,7 @@ class TempTable(models.Model):
     RootPath = models.CharField(max_length=1000)
     FileName = models.CharField(max_length=250)
     lineNumber = models.CharField(max_length=50)
+    CodeLine =  models.CharField(max_length=1000)
 
     def __str__(self):
         return self.FileName

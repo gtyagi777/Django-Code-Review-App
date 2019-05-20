@@ -826,7 +826,6 @@ button {
   background-repeat: no-repeat;
   background-size: 100%;
   padding: 15px;
-  background-color: #6c7ae0;
 }
 
 .s130 form {
@@ -855,27 +854,30 @@ button {
 
 .s130 form .inner-form .input-field input {
   height: 100%;
-  background: transparent;
   border: 0;
   display: block;
   width: 100%;
-  padding: 10px 0;
+  padding: 10px 10px;
   font-size: 16px;
   color: #000;
+  border-left: solid #e3f2fd 5px;
+  border-top: solid #e3f2fd 10px;
+  border-right: solid #e3f2fd 5px;
+  border-bottom: solid #e3f2fd 10px;
 }
 
 .s130 form .inner-form .input-field input.placeholder {
-  color: #222;
+  color: #d4d1d1;
   font-size: 16px;
 }
 
 .s130 form .inner-form .input-field input:-moz-placeholder {
-  color: #222;
+  color:#d4d1d1;
   font-size: 16px;
 }
 
 .s130 form .inner-form .input-field input::-webkit-input-placeholder {
-  color: #222;
+  color: #d4d1d1;
   font-size: 16px;
 }
 
@@ -990,7 +992,6 @@ max-height:auto;
 }
 
 .container-table100 {
-  background: #fff;
   display: flex;
   flex-wrap: wrap;
   padding: 33px 30px;
@@ -998,6 +999,11 @@ max-height:auto;
   width: 50%;
   height : 50%;
   margin-top : 10%
+}
+
+.search-box {
+
+  border-radius: 40px 40px;
 }
 
 /*# sourceMappingURL=Searchs_130.css.map */

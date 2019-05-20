@@ -1,7 +1,6 @@
 from os import listdir
 from os import walk
 import app_cmp.config as cfg
-import json
 
 
 class getResult:
@@ -32,7 +31,7 @@ class getResult:
                         for text in self.searchTextList:
                             if not line.find(text) == -1:
                                 self.searchTextDict[text].append(
-                                    [root, file, lineNumber])
+                                    [root, file, lineNumber, line])
                         line = content.readline()
                         lineNumber += 1
 
@@ -46,7 +45,6 @@ class getResult:
 
 def main():
     x = getResult(["input"]).getValues()
-    print(json.dumps(x, indent=4))
 
 
 if __name__ == "__main__":
