@@ -1,4 +1,5 @@
 from os import listdir
+import os
 from os import walk
 import app_cmp.config as cfg
 
@@ -19,11 +20,12 @@ class searchInFiles:
             content = open(_file)
             line = content.readline()
             lineNumber = 1
+            head, tail = os.path.split(_file)
             while(line != ""):
                 for text in self.searchTextList:
                     if not line.find(text) == -1:
                         self.searchTextDict[text].append(
-                                [root, file, lineNumber, line])
+                                [head, tail, lineNumber, line])
                 line = content.readline()
                 lineNumber += 1
 

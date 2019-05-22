@@ -142,8 +142,6 @@ iframe {
 
 .container-table100 {
   width: 100%;
-  background: #fff;
-
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -517,4 +515,18 @@ th, td {
 
 .table100.ver5 .ps__rail-y .ps__thumb-y::before {
   background-color: #cccccc;
+}
+
+pre{
+  display: block;
+  padding: 0px;
+  margin: 0 0 0 0;
+  font-size: 1.2em;
+  line-height: 1.42857143;
+  color: #333;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: transparent;
+  border: none;
+  border-radius: 4px;
 }
