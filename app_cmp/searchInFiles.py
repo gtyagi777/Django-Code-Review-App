@@ -1,10 +1,9 @@
 from os import listdir
 import os
 from os import walk
-import app_cmp.config as cfg
 
 
-class searchInFiles:
+class searchHandler:
 
     def __init__(self, _args, _path):
         self.searchTextList = _args
@@ -17,7 +16,9 @@ class searchInFiles:
             self.searchTextDict[text] = list()
 
         for _file in self.searchFileList:
-            content = open(_file)
+            #print(_file)
+            content = open(_file,  encoding='utf-8',
+                 errors='ignore')
             line = content.readline()
             lineNumber = 1
             head, tail = os.path.split(_file)
@@ -31,7 +32,7 @@ class searchInFiles:
 
             content.close()
 
-            return self.searchTextDict
+        return self.searchTextDict
 
         def handleDb(self):
             import django
@@ -39,8 +40,8 @@ class searchInFiles:
 
 
 def main():
-    x = searchInFiles(["input", "path"]).getValues()
-
+    x = searchInFiles(["#include"],["C:\\Users\\tyagi\\Desktop\\Garmin\\Django\\Garmin\\Garmin_1\\Repo1\\OneLife-master\\gameSource\\soundBank.cpp"]).getValues()
+    print(x)
 
 if __name__ == "__main__":
     main()

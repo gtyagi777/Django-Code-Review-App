@@ -20,7 +20,7 @@ class getResult:
             for file in files:
                 ext = file.split(".")[1]
 
-                if ext in cfg._config["ext"]:
+                if ext in cfg.ext:
                     if not root.endswith("\\"):
                         root += "\\"
                     content = open(root + file)

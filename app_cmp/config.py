@@ -1,9 +1,6 @@
 #Configuration file
-path = "C:\\Users\\tyagi\\Desktop\\Language\\Python\\Algorithm\\"
-_config = {
-        "path": "C:\\Users\\tyagi\\Desktop\\Language\\Python\\Algorithm\\",
-        "ext": ["py", "html", "java"]
-        }
+path = "C:\\Users\\tyagi\\Desktop\\Garmin\\Django\\Garmin\\Garmin_1\\"
+ext = [".py", ".cpp", ".java", ".hpp", ".h"]
 
 if __name__ == "__main__":
     pass

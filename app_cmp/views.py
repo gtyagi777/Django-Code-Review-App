@@ -13,7 +13,7 @@ from django.utils.html import conditional_escape
 from django.utils.safestring import mark_safe
 
 import app_cmp.word_finder as getData
-import app_cmp.searchInFiles as searchKeyWord
+from app_cmp.searchInFiles import searchHandler
 import app_cmp.populate as pop
 
 # Create your views here.
@@ -83,7 +83,7 @@ def fileList(request):
         print(args)
         if len(args) < 1 and len(str(data)) < 1:
             pass
-
+ 
         elif len(args) < 1:
             table = FileTable.objects.filter(Q(FileName__contains=str(data)))
 
@@ -107,10 +107,10 @@ def fileList(request):
             table = FileTable.objects.filter(Q(FileName__contains=str(data)))
             i = []
             for x in table:
-                print(str(x.RootPath) + "\\" + str(x.FileName))
+               #print(str(x.RootPath) + "\\" + str(x.FileName))
                 i.append(str(x.RootPath) + "\\" + str(x.FileName))
-
-            table = searchKeyWord.searchInFiles(args, i).getValues()
+            table = searchHandler(args, i).getValues()
+            #print(table)
             i = getDataBasedOnFileName(table)
 
             return render(request, 'app_cmp/fileList.1.html', {'files': i})
@@ -177,3 +177,4 @@ def populateDB(request):
     form = SearchForms()
     xx = pop.filesToDB().populate()
     return redirect('index')
+ 

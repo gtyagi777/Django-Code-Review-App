@@ -1,5 +1,6 @@
 from app_cmp.models import PathTable, FileTable
 import os
+from . import config
 
 class File:
     root = ""
@@ -27,13 +28,14 @@ class filesToDB:
     def populate(self):
         self.delete_everything()
 
-        self.pathOfDirectory = "C:\\Users\\tyagi\\Desktop\\Language\\Python\\Algorithm"
+        self.pathOfDirectory = config.path
+        print(self.pathOfDirectory)
 
         self.fileObj = list()
         i = 0
 
         for roots, directories, files in os.walk(self.pathOfDirectory):
-            x = [".java", ".py", ".html"]
+            x = config.ext
             for file in files:
                 # fileComp stores the components of file, ie, filename and extention
                 fileComp = os.path.splitext(file)
