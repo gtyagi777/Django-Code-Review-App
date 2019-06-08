@@ -72,7 +72,6 @@ def getDataBasedOnFileName(table):
 
 
 def fileList(request):
-
     form = SearchForms()
     if request.method == "POST":
         form = SearchForms(request.POST)
