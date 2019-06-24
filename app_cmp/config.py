@@ -1,6 +1,6 @@
 #Configuration file
-path = "C:\\Users\\tyagi\\Desktop\\Garmin\\Django\\Garmin\\Garmin_1\\"
-ext = [".py", ".cpp", ".java", ".hpp", ".h"]
+path = "C:\\Users\\tyagi\\Desktop\\Flask\\frontend\\src"
+ext = [".py", ".html",".c", ".hpp", ".cpp", ".h", ".js"]
 
 if __name__ == "__main__":
     pass

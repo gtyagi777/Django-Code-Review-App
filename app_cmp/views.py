@@ -2,11 +2,11 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template import Context, Template
 from app_cmp.forms import SearchForms
-from app_cmp.models import FileTable, PathTable
+from coreapi.models import FileTable, PathTable
 from django_tables2 import RequestConfig
 from django.db.models import Q
 
-from app_cmp.models import TempTable
+from coreapi.models import TempTable
 
 from django import template
 from django.utils.html import conditional_escape
@@ -32,10 +32,10 @@ def getDataBasedOnFileName(table):
         django.setup()
         TempTable.objects.all().delete()
 
-        for i in _list:
+        """for i in _list:
             c = TempTable.objects.get_or_create(SearchTerm=i[0], RootPath=i[1],
                                                 FileName=i[2], lineNumber=i[3], CodeLine=i[4])[0]
-            c.save()
+            c.save()"""
 
     def initial_letter_filter(text, line,  autoescape=True):
         result = "<a href=\"displayFile/" + \
@@ -72,7 +72,6 @@ def getDataBasedOnFileName(table):
 
 
 def fileList(request):
-
     form = SearchForms()
     if request.method == "POST":
         form = SearchForms(request.POST)
