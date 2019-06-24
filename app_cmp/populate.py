@@ -1,4 +1,4 @@
-from app_cmp.models import PathTable, FileTable
+from coreapi.models import PathTable, FileTable
 import os
 from . import config
 

@@ -29,18 +29,24 @@
 {% block jscontent %}
 <script type="text/javascript">
   $(document).ready(function () {
+    var argu = []
+    {% for arg in args %}
+    console.log('{{arg}}')
+    argu.push('{{arg}}')
+    {% endfor %}
     var _data = $.parseJSON($.ajax({
       url: '/api/getData',
       type: 'GET',
       data: {
         'pk': '{{fname}}',
-        'args': '{{args}}'
+        'args': argu,
       },
       dataType: 'json',
       async: false
     }).responseText);
     console.log(_data)
 
+if (argu.length <1) {
 $('#table').bootstrapTable({
   pagination: true,
   columns: [{
@@ -61,6 +67,34 @@ $('#table').bootstrapTable({
   }],
   data: _data
 })
+}
+
+else {
+$('#table').bootstrapTable({
+  pagination: true,
+  columns: [{
+    field: 'SearchTerm',
+    title: 'SearchTerm'
+  }, {
+    field: 'RootPath',
+    title: 'RootPath'
+  }, {
+    field: 'FileName',
+    title: 'FileName',
+  },
+  {
+    field: 'lineNumber',
+    title: 'Line No',
+    formatter: 'LineFormatter'
+  },
+  {
+    field: 'CodeLine',
+    title: 'CodeLine',
+  }],
+  data: _data
+})
+
+}
   });
 </script>
 
@@ -73,6 +107,13 @@ $('#table').bootstrapTable({
 <script type="text/javascript">
   function pathFormatter(value, row) {
       return "<a href='/files/displayFilePlain/" + value + "'>Copy</a>"
+    };
+</script>
+
+<script type="text/javascript">
+  function LineFormatter(value, row) {
+    xx = "<a href='/files/displayFile/" + row.FileID + "'>" + value+ "</a>"
+      return xx
     };
 </script>
 {% endblock %}
